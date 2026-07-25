@@ -4,716 +4,388 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>نورة محمد باخيل — طالبة هندسة حاسب وشبكات</title>
+<meta name="description" content="نورة محمد باخيل — طالبة هندسة حاسب وشبكات بجامعة أم القرى، مهتمة بالأنظمة المدمجة وإنترنت الأشياء والذكاء الاصطناعي.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0D1117;
-    --bg-panel:#131A22;
-    --bg-panel-2:#19222C;
-    --border: rgba(233,237,241,0.08);
-    --border-strong: rgba(233,237,241,0.16);
-    --text:#E9EDF1;
-    --muted:#8B96A3;
-    --muted-2:#5B6570;
-    --cyan:#5B9BD9;
-    --cyan-dim: rgba(91,155,217,0.12);
-    --amber:#5B9BD9;
-    --green:#6FBF9A;
-    --font-display: 'Almarai', var(--font-ar);
-    --font-ar: 'IBM Plex Sans Arabic', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --container: 1120px;
+    --bg:#080B14;
+    --glass: rgba(255,255,255,0.04);
+    --glass-2: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-border-strong: rgba(255,255,255,0.18);
+    --text:#EDF2FB;
+    --muted:#94A0B8;
+    --muted-2:#5B6780;
+    --a1:#38BDF8;
+    --a2:#818CF8;
+    --grad: linear-gradient(135deg, var(--a1), var(--a2));
+    --font:'Cairo', sans-serif;
+    --container:1100px;
   }
-
   *{ box-sizing:border-box; margin:0; padding:0; }
   html{ scroll-behavior:smooth; }
-
   body{
-    background:
-      radial-gradient(circle at 1px 1px, rgba(234,240,247,0.05) 1px, transparent 0) 0 0/28px 28px,
-      var(--bg);
-    color:var(--text);
-    font-family:var(--font-ar);
-    line-height:1.75;
-    -webkit-font-smoothing:antialiased;
+    background:var(--bg); color:var(--text); font-family:var(--font);
+    line-height:1.8; -webkit-font-smoothing:antialiased; position:relative; overflow-x:hidden;
   }
-
+  body::before, body::after{
+    content:''; position:fixed; width:520px; height:520px; border-radius:50%;
+    filter:blur(120px); opacity:0.22; z-index:0; pointer-events:none;
+  }
+  body::before{ background:var(--a1); top:-160px; left:-120px; }
+  body::after{ background:var(--a2); bottom:-160px; right:-120px; }
   a{ color:inherit; text-decoration:none; }
-  .wrap{ max-width:var(--container); margin:0 auto; padding:0 28px; }
-  section{ scroll-margin-top:86px; }
+  .wrap{ max-width:var(--container); margin:0 auto; padding:0 28px; position:relative; z-index:1; }
+  section{ scroll-margin-top:100px; }
+  :focus-visible{ outline:2px solid var(--a1); outline-offset:3px; }
 
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(10,14,20,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    height:68px;
-  }
-  .logo{
-    display:flex; align-items:center; gap:10px;
-    font-family:var(--font-mono); font-size:14px; color:var(--text);
-  }
-  .logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); }
-  .nav-links{ display:flex; gap:8px; align-items:center; }
-  .nav-links a{
-    font-size:14.5px; color:var(--muted); padding:8px 14px; border-radius:8px;
-    transition:color .2s, background .2s;
-  }
-  .nav-links a:hover{ color:var(--text); background:rgba(234,240,247,0.05); }
-  .nav-cta{ border:1px solid var(--border-strong) !important; color:var(--text) !important; }
-  .menu-btn{
-    display:none; background:none; border:1px solid var(--border-strong); border-radius:8px;
-    width:40px; height:40px; align-items:center; justify-content:center; color:var(--text); cursor:pointer;
-  }
+  .glass{ background:var(--glass); border:1px solid var(--glass-border); border-radius:20px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
 
-  /* ---------- Combined Compact Hero ---------- */
-  .hero{ padding:60px 0 40px; }
-  .hero-frame{
-    position:relative; padding:40px 48px; border:1px solid var(--border);
-    display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;
-  }
-  .corner-tl, .corner-tr, .corner-bl, .corner-br{ position:absolute; width:16px; height:16px; }
-  .corner-tl{ top:-1px; left:-1px; border-top:2px solid var(--cyan); border-left:2px solid var(--cyan); }
-  .corner-tr{ top:-1px; right:-1px; border-top:2px solid var(--cyan); border-right:2px solid var(--cyan); }
-  .corner-bl{ bottom:-1px; left:-1px; border-bottom:2px solid var(--cyan); border-left:2px solid var(--cyan); }
-  .corner-br{ bottom:-1px; right:-1px; border-bottom:2px solid var(--cyan); border-right:2px solid var(--cyan); }
+  /* Header */
+  header{ position:sticky; top:16px; z-index:50; }
+  .nav-pill{ display:flex; align-items:center; justify-content:space-between; height:60px; padding:0 10px 0 22px; border-radius:999px; }
+  .logo{ font-weight:800; font-size:15px; }
+  .nav-links{ display:flex; gap:2px; align-items:center; }
+  .nav-links a{ font-size:14px; color:var(--muted); padding:9px 16px; border-radius:999px; transition:color .2s, background .2s; }
+  .nav-links a:hover{ color:var(--text); background:var(--glass-2); }
+  .nav-cta{ background:var(--grad); color:#04121F !important; font-weight:700; padding:9px 20px !important; margin-inline-start:6px; }
+  .menu-btn{ display:none; background:var(--glass-2); border:1px solid var(--glass-border); border-radius:999px; width:38px; height:38px; align-items:center; justify-content:center; color:var(--text); cursor:pointer; }
 
-  .status-pill{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:var(--font-mono); font-size:12px; color:var(--green);
-    background:rgba(111,191,154,0.08); border:1px solid rgba(111,191,154,0.28);
-    padding:4px 12px; border-radius:20px; margin-bottom:18px;
-  }
-  .status-pill .ping{
-    width:6px; height:6px; border-radius:50%; background:var(--green);
-    animation:pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse{
-    0%,100%{ box-shadow:0 0 0 0 rgba(111,191,154,0.4); }
-    50%{ box-shadow:0 0 0 5px rgba(111,191,154,0); }
-  }
+  /* Hero */
+  .hero{ padding:56px 0 60px; }
+  .hero-card{ padding:56px 48px; text-align:center; display:flex; flex-direction:column; align-items:center; }
+  .avatar-ring{ width:120px; height:120px; border-radius:50%; padding:3px; background:var(--grad); margin-bottom:26px; overflow:hidden; }
+  .avatar-inner{ width:100%; height:100%; border-radius:50%; background:#0C1220; overflow:hidden; }
+  .avatar-inner img{ width:100%; height:100%; object-fit:cover; }
+  .eyebrow{ font-size:13px; font-weight:700; letter-spacing:0.06em; margin-bottom:14px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero h1{ font-size:clamp(32px,5vw,46px); font-weight:800; margin-bottom:10px; }
+  .hero .role{ font-size:17px; color:var(--muted); margin-bottom:22px; }
+  .hero .bio{ color:var(--muted); font-size:15.5px; max-width:58ch; margin:0 auto 30px; }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:13px 28px; border-radius:999px; font-size:15px; font-weight:700; transition:transform .15s ease, border-color .2s ease; }
+  .btn-primary{ background:var(--grad); color:#04121F; }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-ghost{ border:1px solid var(--glass-border-strong); color:var(--text); background:var(--glass-2); }
+  .btn-ghost:hover{ border-color:var(--a1); transform:translateY(-2px); }
 
-  .hero h1{
-    font-family:var(--font-display); font-size:clamp(32px, 4.5vw, 48px); font-weight:800; line-height:1.2;
-    margin-bottom:8px;
-  }
-  .hero .role{
-    font-family:var(--font-mono); color:var(--cyan); font-size:14px; margin-bottom:4px;
-    direction:ltr; text-align:right; unicode-bidi:isolate;
-  }
-  .hero .sub-role{
-    font-family:var(--font-mono); color:var(--muted); font-size:13px; margin-bottom:18px;
-    direction:ltr; text-align:right; unicode-bidi:isolate;
-  }
-  .hero p.bio{ color:var(--muted); font-size:15px; margin-bottom:24px; line-height:1.75; }
-
-  .cta-row{ display:flex; gap:12px; flex-wrap:wrap; }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600;
-    transition:transform .2s, background .2s, border-color .2s;
-  }
-  .btn-primary{ background:var(--cyan); color:#0A1420; }
-  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(91,155,217,0.25); }
-  .btn-ghost{ border:1px solid var(--border-strong); color:var(--text); }
-  .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); transform:translateY(-2px); }
-
-  /* Terminal Card inside Hero */
-  .terminal{
-    background:var(--bg-panel); border:1px solid var(--border); border-radius:12px; overflow:hidden;
-  }
-  .terminal-bar{
-    display:flex; align-items:center; gap:6px; padding:10px 14px; border-bottom:1px solid var(--border);
-    background:var(--bg-panel-2);
-  }
-  .terminal-bar span{ width:9px; height:9px; border-radius:50%; background:var(--border-strong); }
-  .terminal-title{ margin-inline-start:6px; font-family:var(--font-mono); font-size:11px; color:var(--muted); direction:ltr; }
-  .terminal-body{ padding:18px 16px; font-family:var(--font-mono); font-size:12.5px; }
-  .terminal-body .row{ display:flex; gap:8px; margin-bottom:10px; direction:ltr; text-align:right; unicode-bidi:isolate; flex-wrap:wrap; }
-  .terminal-body .row:last-child{ margin-bottom:0; }
-  .terminal-body .key{ color:var(--cyan); min-width:90px; }
-  .terminal-body .val{ color:var(--muted); }
-  .cursor{ display:inline-block; width:6px; height:12px; background:var(--cyan); animation:blink 1s step-end infinite; vertical-align:middle; }
-  @keyframes blink{ 50%{ opacity:0; } }
-
-  /* ---------- Section headings ---------- */
-  .eyebrow{ font-family:var(--font-mono); font-size:12px; color:var(--cyan); margin-bottom:8px; direction:ltr; text-align:right; unicode-bidi:isolate; }
-  .section-title{ font-family:var(--font-display); font-size:clamp(24px,2.8vw,32px); font-weight:800; margin-bottom:12px; }
+  /* Section heading */
   .section-head{ margin-bottom:36px; max-width:60ch; }
+  .section-eyebrow{ font-size:13px; font-weight:700; letter-spacing:0.06em; margin-bottom:8px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .section-title{ font-size:clamp(22px,3vw,30px); font-weight:800; margin-bottom:10px; }
   .section-sub{ color:var(--muted); font-size:15px; }
+  section.py{ padding:60px 0; }
 
-  section.py{ padding:70px 0; border-top:1px solid var(--border); }
+  /* Initiative */
+  .initiative{ padding:30px 34px; display:flex; justify-content:space-between; align-items:center; gap:26px; flex-wrap:wrap; }
+  .initiative h3{ font-size:19px; font-weight:800; margin-bottom:6px; }
+  .initiative p{ color:var(--muted); font-size:14px; max-width:44ch; }
+  .initiative-link{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; font-size:14px; margin-top:8px; display:inline-block; }
+  .progress-wrap{ min-width:200px; }
+  .progress-track{ width:200px; height:8px; border-radius:99px; background:var(--glass-2); overflow:hidden; margin-bottom:8px; }
+  .progress-fill{ height:100%; width:12%; background:var(--grad); border-radius:99px; }
+  .progress-text{ font-size:12.5px; color:var(--muted-2); }
 
-  /* ---------- Initiative Card ---------- */
-  .initiative-card{
-    background:var(--bg-panel);
-    border:1px solid var(--border-strong);
-    border-radius:12px;
-    padding:32px 36px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:24px;
-    flex-wrap:wrap;
-  }
-  .initiative-content{ max-width:600px; }
-  .initiative-title{
-    font-size:22px;
-    font-family:var(--font-display);
-    font-weight:800;
-    margin-bottom:10px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .initiative-desc{ color:var(--muted); font-size:14.5px; margin-bottom:20px; line-height:1.6; }
-  .progress-box{ max-width:380px; }
-  .progress-bar-text{
-    font-family:var(--font-mono);
-    font-size:14px;
-    color:var(--cyan);
-    margin-bottom:8px;
-    direction:ltr;
-    text-align:right;
-    letter-spacing:1px;
-  }
-  .progress-stats{
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    color:var(--muted-2);
-    direction:ltr;
-    text-align:right;
-  }
+  /* Skills */
+  .skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .skill-card{ padding:24px 26px; }
+  .skill-card h3{ font-size:16px; font-weight:700; margin-bottom:16px; }
+  .skill-tags{ display:flex; gap:8px; flex-wrap:wrap; }
 
-  /* ---------- Skills (With Professional Animations) ---------- */
-  .skills-grid{ 
-    display:grid; 
-    grid-template-columns:repeat(3, 1fr); 
-    gap:20px; 
-  }
-  
-  .skill-card{ 
-    background:var(--bg-panel); 
-    border:1px solid var(--border); 
-    border-radius:12px; 
-    padding:24px 22px; 
-    display:flex; 
-    flex-direction:column;
-    position:relative;
-    overflow:hidden;
-    transition:transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity:0;
-  }
-
-  /* Keyframe animations for loading grid */
-  @keyframes fadeInUp {
-    from { opacity:0; transform:translateY(20px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-
-  .skill-card:nth-child(1) { animation-delay: 0.1s; }
-  .skill-card:nth-child(2) { animation-delay: 0.2s; }
-  .skill-card:nth-child(3) { animation-delay: 0.3s; }
-  .skill-card:nth-child(4) { animation-delay: 0.4s; }
-  .skill-card:nth-child(5) { animation-delay: 0.5s; }
-  .skill-card:nth-child(6) { animation-delay: 0.6s; }
-
-  /* Interactive Hover Animation */
-  .skill-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(91, 155, 217, 0.4);
-    box-shadow: 0 12px 28px -10px rgba(91, 155, 217, 0.15);
-  }
-
-  .skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-
-  .skill-card:hover::before {
-    opacity: 1;
-  }
-
-  .skill-card h3{ 
-    font-size:16px; 
-    color:var(--text); 
-    margin-bottom:14px; 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    transition: color 0.3s ease;
-  }
-
-  .skill-card:hover h3 {
-    color: var(--cyan);
-  }
-
-  .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
-
-  .skill-pill{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--text);
-    background:var(--bg-panel-2);
-    border:1px solid var(--border-strong);
-    padding:6px 12px;
-    border-radius:6px;
-    direction:ltr;
-    transition:all 0.25s ease;
-    cursor:default;
-  }
-
-  .skill-pill:hover{
-    border-color: var(--cyan);
-    background: rgba(91, 155, 217, 0.12);
-    color: #FFF;
-    transform: translateY(-2px);
-  }
-
-  /* ---------- Projects ---------- */
+  /* Projects */
   .projects-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  .project-card{ background:var(--bg-panel); border:1px solid var(--border); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
-  .project-img{ aspect-ratio:16/10; background:var(--bg-panel-2); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--muted-2); }
+  .project-card{ overflow:hidden; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease; }
+  .project-card:hover{ border-color:var(--glass-border-strong); transform:translateY(-4px); }
+  .project-img{ aspect-ratio:16/10; background:#0B0F1A; border-bottom:1px solid var(--glass-border); overflow:hidden; }
   .project-img img{ width:100%; height:100%; object-fit:cover; }
   .project-body{ padding:20px; display:flex; flex-direction:column; gap:12px; flex-grow:1; }
   .project-tag-row{ display:flex; gap:6px; flex-wrap:wrap; }
-  .project-card h3{ font-size:16px; }
-  .project-card p{ color:var(--muted); font-size:14px; }
-  .tag{ font-family:var(--font-mono); font-size:10.5px; color:var(--amber); background:rgba(91,155,217,0.09); border:1px solid rgba(91,155,217,0.25); padding:3px 8px; border-radius:5px; direction:ltr; }
-  .project-link{ font-family:var(--font-mono); font-size:12.5px; color:var(--cyan); margin-top:auto; }
+  .tag{ font-size:12px; font-weight:600; color:var(--a1); background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:5px 12px; border-radius:99px; direction:ltr; display:inline-block; }
+  .project-card h3{ font-size:16px; font-weight:700; }
+  .project-card p{ color:var(--muted); font-size:13.5px; }
+  .project-link{ font-size:13px; font-weight:700; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-top:auto; }
 
-  /* ---------- Certifications ---------- */
-  .certs-row{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px; }
-  .cert-badge{ display:flex; align-items:center; gap:12px; background:var(--bg-panel); border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
-  .cert-badge .cert-img{ width:42px; height:42px; border-radius:8px; background:var(--bg-panel-2); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:20px; }
-  .cert-badge .cert-name{ font-size:14px; font-weight:600; color:var(--text); }
-  .cert-badge .cert-org{ font-family:var(--font-mono); font-size:11px; color:var(--muted-2); direction:ltr; margin-bottom:3px; text-align:right; }
-  .cert-badge .cert-link{ font-family:var(--font-mono); font-size:11px; color:var(--cyan); direction:ltr; display:inline-flex; align-items:center; gap:4px; }
+  /* Education + Certifications */
+  .edu-cert-grid{ display:grid; grid-template-columns: 1fr 1.8fr; gap:18px; align-items:start; }
+  .info-card{ padding:22px 24px; }
+  .info-card h3{ font-size:16px; font-weight:700; margin-bottom:14px; }
+  .edu-line{ padding:10px 0; }
+  .edu-line-name{ font-size:14.5px; font-weight:600; }
+  .edu-line-org{ font-size:13px; color:var(--muted-2); margin-top:2px; }
+  .cert-line{ display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-top:1px solid var(--glass-border); }
+  .cert-line:first-of-type{ border-top:none; padding-top:0; }
+  .cert-line-name{ font-size:14px; font-weight:600; }
+  .cert-line-org{ font-size:12.5px; color:var(--muted-2); }
+  .cert-line-date{ font-size:12.5px; color:var(--muted-2); white-space:nowrap; }
+  .certs-action{ text-align:center; margin-top:26px; }
 
-  /* ---------- Achievements ---------- */
-  .achieve-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  .achieve-card{ background:var(--bg-panel); border:1px solid var(--border); border-radius:12px; padding:20px; display:flex; gap:14px; align-items:flex-start; }
-  .achieve-icon{ width:40px; height:40px; border-radius:8px; background:rgba(91,155,217,0.1); border:1px solid rgba(91,155,217,0.25); display:flex; align-items:center; justify-content:center; color:var(--cyan); flex-shrink:0; font-size:18px; }
-  .achieve-card h3{ font-size:15.5px; margin-bottom:4px; }
-  .achieve-card p{ color:var(--muted); font-size:13.5px; }
-/* ---------- Contact Section ---------- */
-  .contact-box { 
-    text-align: center; 
-    max-width: 580px; 
-    margin: 0 auto; 
-    padding: 10px 20px;
-  }
+  /* Honors */
+  .honors-list{ display:flex; flex-direction:column; gap:14px; }
+  .honor-card{ padding:20px 24px; display:flex; gap:16px; align-items:flex-start; }
+  .honor-dot{ width:10px; height:10px; border-radius:50%; background:var(--grad); margin-top:6px; flex-shrink:0; }
+  .honor-card h3{ font-size:15.5px; font-weight:700; margin-bottom:4px; }
+  .honor-date{ font-size:12px; color:var(--muted-2); margin-bottom:6px; display:block; }
+  .honor-card p{ color:var(--muted); font-size:13.5px; }
 
-  .contact-box .eyebrow {
-    text-align: center;
-    margin-bottom: 6px;
-  }
+  /* Contact */
+  .contact-card{ text-align:center; padding:48px; max-width:560px; margin:0 auto; }
+  .social-icons{ display:flex; justify-content:center; gap:14px; margin-top:6px; }
+  .social-btn{ width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--text); transition:transform .2s ease, border-color .2s ease; }
+  .social-btn:hover{ border-color:var(--a1); transform:translateY(-3px); }
 
-  .contact-box .section-title {
-    margin-bottom: 10px;
-  }
+  footer{ padding:30px 0; }
+  .footer-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:var(--muted-2); font-size:13px; }
 
-  .contact-box .section-sub {
-    font-size: 15px;
-    color: var(--muted);
-    margin-bottom: 32px;
-  }
-
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .social-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1.5px solid var(--cyan, #5B9BD9);
-    color: var(--cyan, #5B9BD9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background: rgba(91, 155, 217, 0.03);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .social-btn:hover {
-    background: rgba(91, 155, 217, 0.15);
-    border-color: var(--cyan, #5B9BD9);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(91, 155, 217, 0.2);
-  }
-  /* ---------- Responsive ---------- */
   @media (max-width:920px){
-    .hero-frame{ grid-template-columns:1fr; padding:32px 24px; gap:28px; }
-    .achieve-grid{ grid-template-columns:1fr; }
-    .skills-grid, .projects-grid{ grid-template-columns:1fr 1fr; }
+    .skills-grid, .edu-cert-grid{ grid-template-columns:1fr; }
+    .projects-grid{ grid-template-columns:1fr 1fr; }
   }
   @media (max-width:640px){
     .nav-links{ display:none; }
     .menu-btn{ display:flex; }
-    .skills-grid, .projects-grid{ grid-template-columns:1fr; }
-    section.py{ padding:50px 0; }
-    .initiative-card{ flex-direction:column; align-items:flex-start; }
+    .projects-grid{ grid-template-columns:1fr; }
+    .hero-card{ padding:40px 24px; }
+    section.py{ padding:44px 0; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a href="#home" class="logo"><span class="dot"></span> N.BAKHIL</a>
+<header class="wrap">
+  <div class="glass nav-pill">
+    <a href="#home" class="logo">نورة باخيل</a>
     <nav class="nav-links">
       <a href="#skills">المهارات</a>
-      <a href="#initiative">المبادرة</a>
       <a href="#projects">المشاريع</a>
-      <a href="#certs">الشهادات</a>
-      <a href="#honors">الإنجازات</a>
+      <a href="#certs">التعليم والشهادات</a>
+      <a href="#honors">التطوع والجوائز</a>
       <a href="#contact" class="nav-cta">تواصل معي</a>
     </nav>
     <button class="menu-btn" aria-label="فتح القائمة" id="menuBtn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
   </div>
 </header>
 
 <main>
-  <!-- ============ HERO ============ -->
+  <!-- HERO -->
   <section id="home" class="wrap hero">
-    <div class="hero-frame">
-      <span class="corner-tl"></span><span class="corner-tr"></span><span class="corner-bl"></span><span class="corner-br"></span>
-
-      <div>
-        <span class="status-pill"><span class="ping"></span> متاحة للتدريب وفرص العمل</span>
-        <h1>نورة محمد باخيل</h1>
-        <div class="role">Computer & Network Engineering Student</div>
-        <div class="sub-role">Embedded Systems • IoT • AI</div>
-        <p class="bio">طالبة هندسة حاسب وشبكات بجامعة أم القرى، مهتمة بالأنظمة المدمجة (Embedded Systems)، وإنترنت الأشياء (IoT)، والذكاء الاصطناعي. أمتلك خبرة في تصميم وتنفيذ المشاريع التي تجمع بين العتاد والبرمجيات باستخدام Arduino وESP32، مع دمج التقنيات الذكية لتطوير حلول هندسية للمشكلات الواقعية. أسعى إلى المساهمة في بناء أنظمة مبتكرة ذات أثر حقيقي.</p>
-        <div class="cta-row">
-          <a href="#contact" class="btn btn-primary">تواصل معي</a>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    <div class="glass hero-card">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <img src="n.jpg" alt="نورة باخيل">
         </div>
       </div>
-
-      <!-- Compact Terminal Side-Card -->
-      <div class="terminal">
-        <div class="terminal-bar">
-          <span></span><span></span><span></span>
-          <span class="terminal-title">profile.sh</span>
-        </div>
-        <div class="terminal-body">
-          <div class="row"><span class="key">UNI</span><span class="val">Umm Al-Qura University</span></div>
-          <div class="row"><span class="key">INTERESTS</span><span class="val">Embedded Systems • IoT • AI</span></div>
-          <div class="row"><span class="key">LOCATION</span><span class="val">Makkah, Saudi Arabia</span></div>
-          <div class="row"><span class="key">STATUS</span><span class="val">Open to Internship<span class="cursor"></span></span></div>
-        </div>
+      <div class="eyebrow">COMPUTER & NETWORK ENGINEERING STUDENT</div>
+      <h1>نورة محمد باخيل</h1>
+      <div class="role">جامعة أم القرى · مكة المكرمة</div>
+      <p class="bio">طالبة هندسة حاسب وشبكات، مهتمة بالأنظمة المدمجة، وإنترنت الأشياء، والذكاء الاصطناعي. أمتلك خبرة في تصميم وتنفيذ مشاريع تجمع بين العتاد والبرمجيات باستخدام Arduino وESP32، مع دمج التقنيات الذكية لتطوير حلول هندسية لمشكلات واقعية.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">عرض أعمالي</a>
+        <a href="#" class="btn btn-ghost">تحميل السيرة الذاتية</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ SKILLS ============ -->
+  <!-- CURRENT INITIATIVE -->
+  <section class="wrap py">
+    <div class="glass initiative">
+      <div>
+        <div class="section-eyebrow">MY CURRENT INITIATIVE</div>
+        <h3>تحدي 100 مشروع</h3>
+        <p>بناء 100 مشروع هندسي في الأنظمة المدمجة، إنترنت الأشياء، الذكاء الاصطناعي، وشبكات الحاسب.</p>
+        <a href="https://x.com/_noorah87?s=11" target="_blank" class="initiative-link">متابعة التقدّم ↗</a>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill"></div></div>
+        <div class="progress-text">12 من 100 مشروع مكتمل</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
   <section id="skills" class="wrap py">
     <div class="section-head">
-      <div class="eyebrow">SKILLS</div>
+      <div class="section-eyebrow">SKILLS</div>
       <h2 class="section-title">المهارات التقنية</h2>
       <p class="section-sub">مجالات الخبرة والتقنيات والأدوات الهندسية المستعملة.</p>
     </div>
-
     <div class="skills-grid">
-      <!-- 1. Embedded Systems -->
-      <div class="skill-card">
-        <h3>Embedded Systems</h3>
+      <div class="glass skill-card">
+        <h3>الأنظمة المدمجة وإنترنت الأشياء</h3>
         <div class="skill-tags">
-          <span class="skill-pill">Arduino</span>
-          <span class="skill-pill">ESP32</span>
-          <span class="skill-pill">Embedded Systems Design</span>
-          <span class="skill-pill">Sensor Integration</span>
-          <span class="skill-pill">Hardware–Software Integration</span>
-          <span class="skill-pill">Electronic Circuit Prototyping</span>
+          <span class="tag">Arduino</span>
+          <span class="tag">ESP32</span>
+          <span class="tag">Sensor Integration</span>
+          <span class="tag">IoT Solutions</span>
+          <span class="tag">Hardware–Software Integration</span>
         </div>
       </div>
-
-      <!-- 2. IoT & Smart Systems -->
-      <div class="skill-card">
-        <h3>IoT & Smart Systems</h3>
+      <div class="glass skill-card">
+        <h3>البرمجة والذكاء الاصطناعي</h3>
         <div class="skill-tags">
-          <span class="skill-pill">Internet of Things (IoT)</span>
-          <span class="skill-pill">Smart Monitoring Systems</span>
-          <span class="skill-pill">Wireless Sensor Applications</span>
-          <span class="skill-pill">Real-Time Data Collection</span>
+          <span class="tag">Python</span>
+          <span class="tag">C / C++</span>
+          <span class="tag">Java</span>
+          <span class="tag">PHP (Laravel)</span>
+          <span class="tag">Computer Vision Fundamentals</span>
         </div>
       </div>
-
-      <!-- 3. Artificial Intelligence -->
-      <div class="skill-card">
-        <h3>Artificial Intelligence</h3>
+      <div class="glass skill-card">
+        <h3>الأدوات الهندسية</h3>
         <div class="skill-tags">
-          <span class="skill-pill">AI Integration</span>
-          <span class="skill-pill">AI-assisted Development</span>
-          <span class="skill-pill">Prompt Engineering</span>
-          <span class="skill-pill">Computer Vision Fundamentals</span>
+          <span class="tag">Git & GitHub</span>
+          <span class="tag">Cisco Packet Tracer</span>
+          <span class="tag">Tinkercad</span>
+          <span class="tag">Logisim</span>
+          <span class="tag">VS Code</span>
         </div>
       </div>
-
-      <!-- 4. Programming -->
-      <div class="skill-card">
-        <h3>Programming</h3>
+      <div class="glass skill-card">
+        <h3>الخبرات الهندسية</h3>
         <div class="skill-tags">
-          <span class="skill-pill">C</span>
-          <span class="skill-pill">C++</span>
-          <span class="skill-pill">Java</span>
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">PHP (Laravel)</span>
-        </div>
-      </div>
-
-      <!-- 5. Engineering Tools -->
-      <div class="skill-card">
-        <h3>Engineering Tools</h3>
-        <div class="skill-tags">
-          <span class="skill-pill">Arduino IDE</span>
-          <span class="skill-pill">VS Code</span>
-          <span class="skill-pill">Git & GitHub</span>
-          <span class="skill-pill">Tinkercad</span>
-          <span class="skill-pill">Logisim</span>
-          <span class="skill-pill">Cisco Packet Tracer</span>
-        </div>
-      </div>
-
-      <!-- 6. Engineering Expertise -->
-      <div class="skill-card">
-        <h3>Engineering Expertise</h3>
-        <div class="skill-tags">
-          <span class="skill-pill">Embedded Programming</span>
-          <span class="skill-pill">IoT Solutions</span>
-          <span class="skill-pill">System Integration</span>
-          <span class="skill-pill">Technical Documentation</span>
-          <span class="skill-pill">Engineering Problem Solving</span>
+          <span class="tag">System Integration</span>
+          <span class="tag">Technical Documentation</span>
+          <span class="tag">Engineering Problem Solving</span>
+          <span class="tag">Embedded Systems Design</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CURRENT INITIATIVE ============ -->
-  <section id="initiative" class="wrap py">
-    <div class="initiative-card">
-      <div class="initiative-content">
-        <div class="eyebrow">CURRENT INITIATIVE</div>
-        <h2 class="initiative-title">🚀 100 Projects</h2>
-        <p class="initiative-desc">مبادرة لبناء 100 مشروع هندسي في الأنظمة المدمجة، وإنترنت الأشياء، مع توثيق الرحلة ومشاركة جميع مراحل التطوير</p>
-        <a href="https://x.com/_noorah87?s=11" target="_blank" class="btn btn-primary">اطلع على رحلتي↗</a>
-      </div>
-      <div class="progress-box">
-        <div class="progress-bar-text">Progress</div>
-        <div class="progress-bar-text">██████░░░░░░░░░ 12%</div>
-        <div class="progress-stats">12 / 100 Completed</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROJECTS ============ -->
+  <!-- PROJECTS -->
   <section id="projects" class="wrap py">
     <div class="section-head">
-      <div class="eyebrow">PROJECTS</div>
+      <div class="section-eyebrow">PROJECTS</div>
       <h2 class="section-title">المشاريع الهندسية</h2>
       <p class="section-sub">نماذج تطبيقية تدمج بين الـ Hardware والأنظمة البرمجية الذكية.</p>
     </div>
-
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-img">
-          <img src="photo_2026-07-25_04-26-35.jpg" alt="Smart Air Monitoring System" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span style="display:none; padding:20px; text-align:center;">Smart Air Monitoring</span>
-        </div>
+      <div class="glass project-card">
+        <div class="project-img"><img src="Smart Air Monitoring System.jpg" alt="Smart Air Monitoring System"></div>
         <div class="project-body">
-          <div class="project-tag-row">
-            <span class="tag">ARDUINO</span><span class="tag">IOT SENSORS</span><span class="tag">WEB DASHBOARD</span>
-          </div>
           <h3>Smart Air Monitoring System</h3>
+          <div class="project-tag-row"><span class="tag">ARDUINO</span><span class="tag">IOT SENSORS</span><span class="tag">WEB DASHBOARD</span></div>
           <p>نظام ذكي لرصد جودة الهواء والبيئة في الوقت الفعلي باستعمال الأردوينو ومستشعرات البيئة وربط البيانات مع لوحة تحكم ويب.</p>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/overlay/Project/325408249/treasury/?profileId=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3BCIAPMW%2FtTHq1uEr7m7U2jA%3D%3D" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
+          <a href="https://linkedin.com/in/noorah-bakhil" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
         </div>
       </div>
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="photo_2026-07-25_04-26-41.jpg" alt="Interactive ESP32 System" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span style="display:none; padding:20px; text-align:center;"> Emotion Detection System</span>
-        </div>
+      <div class="glass project-card">
+        <div class="project-img"><img src="Smart Car Selection System.jpg" alt="Smart Car Selection System"></div>
         <div class="project-body">
-          <div class="project-tag-row">
-            <span class="tag">PYTHON</span><span class="tag">ESP32</span><span class="tag">LCD DISPLAY</span>
-          </div>
-          <h3>    Emotion Detection System</h3>
-          <p>نظام ذكي تفاعلي يربط بين خوارزميات معالجة البيانات المتقدمة ومتحكم ESP32 وشاشة LCD، تم عرضه ضمن فعاليات أسبوع الهندسة.</p>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/overlay/Project/83340083/treasury/?profileId=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_projects_details%3BCIAPMW%2FtTHq1uEr7m7U2jA%3D%3D" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
+          <h3>Smart Car Selection System</h3>
+          <div class="project-tag-row"><span class="tag">ESP32</span><span class="tag">HARDWARE</span><span class="tag">RECOMMENDATION</span></div>
+          <p>نظام مادي تفاعلي يتيح للمستخدم اختيار السيارات واستعراض تفاصيلها عبر حساس الصوت وأزرار ذكية، مع نظام توصية ذكي يحلل تفضيلات المستخدم لعرض أنسب الخيارات.</p>
+          <a href="https://linkedin.com/in/noorah-bakhil" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
         </div>
       </div>
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="photo_2026-07-25_04-26-17.jpg" alt="Smart Car Showroom System" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span style="display:none; padding:20px; text-align:center;">Smart Car Showroom</span>
-        </div>h
+      <div class="glass project-card">
+        <div class="project-img"><img src="Emotion Detection System.jpg" alt="Emotion Detection System"></div>
         <div class="project-body">
-          <div class="project-tag-row">
-            <span class="tag">RECOMMENDATION</span><span class="tag">HARDWARE</span><span class="tag">DATA ANALYSIS</span>
-          </div>
-          <h3>Smart Car Showroom System</h3>
-          <p>معرض تفاعلي مادي ونظام توصية ذكي يدمج بين التحكم بالعتاد عبر الحساسات وتطبيق الويب لعرض بيانات السيارات.</p>
-          <a href="https://www.linkedin.com/posts/noorah-bakhil-93a59b30a_engineeringweek-activity-7449894499180531712-PWyt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
+          <h3>Emotion Detection System</h3>
+          <div class="project-tag-row"><span class="tag">PYTHON</span><span class="tag">ESP32</span><span class="tag">COMPUTER VISION</span></div>
+          <p>نظام لتمييز المشاعر في الوقت الفعلي عبر تحليل تعابير الوجه، باستخدام Python وESP32 وشاشة LCD — تم عرضه ضمن فعالية Engineering Week Showcase.</p>
+          <a href="https://linkedin.com/in/noorah-bakhil" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CERTIFICATIONS ============ -->
+  <!-- EDUCATION + CERTIFICATIONS -->
   <section id="certs" class="wrap py">
     <div class="section-head">
-      <div class="eyebrow">CERTIFICATIONS & COURSES</div>
-      <h2 class="section-title">الشهادات والدورات التدريبية</h2>
+      <div class="section-eyebrow">EDUCATION & CERTIFICATIONS</div>
+      <h2 class="section-title">التعليم والشهادات</h2>
     </div>
-    <div class="certs-row">
-      <div class="cert-badge">
-        <div class="cert-img">🎓</div>
-        <div>
-          <div class="cert-name">Intro to Artificial Intelligence</div>
-          <div class="cert-org">KAUST Academy (2026)</div>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/overlay/Certifications/1992151166/treasury/?profileId=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B5YdGEN2PRxuoOdXSqWGcBA%3D%3D" target="_blank" class="cert-link">عرض الشهادة ↗</a>
+    <div class="edu-cert-grid">
+      <div class="glass info-card">
+        <h3>التعليم</h3>
+        <div class="edu-line">
+          <div class="edu-line-name">بكالوريوس هندسة حاسب آلي وشبكات</div>
+          <div class="edu-line-org">جامعة أم القرى · 2023 – الآن</div>
         </div>
       </div>
-      <div class="cert-badge">
-        <div class="cert-img">🐍</div>
-        <div>
-          <div class="cert-name">Python All Levels</div>
-          <div class="cert-org">Coursera / IBM (2025)</div>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/details/certifications/" target="_blank" class="cert-link">عرض الشهادة ↗</a>
-        </div>
+      <div class="glass info-card">
+        <h3>الشهادات والدورات (2025 – 2026)</h3>
+        <div class="cert-line"><div><div class="cert-line-name">Network Programming & C</div><div class="cert-line-org">Satr Academy</div></div><div class="cert-line-date">Oct 2025</div></div>
+        <div class="cert-line"><div><div class="cert-line-name">Microsoft Azure Fundamentals</div><div class="cert-line-org">Microsoft</div></div><div class="cert-line-date">Sep 2025</div></div>
+        <div class="cert-line"><div><div class="cert-line-name">Python All Levels</div><div class="cert-line-org">Coursera / IBM</div></div><div class="cert-line-date">Nov 2025</div></div>
+        <div class="cert-line"><div><div class="cert-line-name">Intro to Artificial Intelligence</div><div class="cert-line-org">KAUST Academy</div></div><div class="cert-line-date">Jan 2026</div></div>
+        <div class="cert-line"><div><div class="cert-line-name">PHP Laravel Web Dev</div><div class="cert-line-org">Tuwaiq Academy</div></div><div class="cert-line-date">Mar 2026</div></div>
+        <div class="cert-line"><div><div class="cert-line-name">Semiconductors & Chip Design</div><div class="cert-line-org">Academy32</div></div><div class="cert-line-date">Apr 2026</div></div>
       </div>
-      <div class="cert-badge">
-        <div class="cert-img">💻</div>
-        <div>
-          <div class="cert-name">PHP Laravel Web Dev</div>
-          <div class="cert-org">Tuwaiq Academy (2026)</div>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/overlay/Certifications/45380330/treasury?profileId=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA" target="_blank" class="cert-link">عرض الشهادة ↗</a>
-        </div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-img">🔬</div>
-        <div>
-          <div class="cert-name">Semiconductors & Chip Design</div>
-          <div class="cert-org">Academy32 (2026)</div>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/overlay/Certifications/916820503/treasury/?profileId=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3B5YdGEN2PRxuoOdXSqWGcBA%3D%3D" target="_blank" class="cert-link">عرض الشهادة ↗</a>
-        </div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-img">🌐</div>
-        <div>
-          <div class="cert-name">Network Programming & C</div>
-          <div class="cert-org">Satr Academy (2024)</div>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/details/certifications/" target="_blank" class="cert-link">عرض الشهادة ↗</a>
-        </div>
-      </div>
-      <div class="cert-badge">
-        <div class="cert-img">☁️</div>
-        <div>
-          <div class="cert-name">Microsoft Azure Fundamentals & Describe Azure</div>
-          <div class="cert-org">Microsoft (2026)</div>
-          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/details/certifications/" target="_blank" class="cert-link">عرض الشهادة ↗</a>
-        </div>
-      </div>
+    </div>
+    <div class="certs-action">
+      <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/details/certifications/" target="_blank" class="btn btn-ghost">عرض كافة الشهادات في LinkedIn ↗</a>
     </div>
   </section>
 
-  <!-- ============ HONORS & LEADERSHIP ============ -->
+  <!-- VOLUNTEERING & HONORS -->
   <section id="honors" class="wrap py">
     <div class="section-head">
-      <div class="eyebrow">HONORS & LEADERSHIP</div>
-      <h2 class="section-title">الجوائز والإنجازات</h2>
+      <div class="section-eyebrow">VOLUNTEERING & HONORS</div>
+      <h2 class="section-title">الأعمال التطوعية والجوائز</h2>
     </div>
-    <div class="achieve-grid">
-      <div class="achieve-card">
-        <div class="achieve-icon">🏆</div>
+    <div class="honors-list">
+      <div class="glass honor-card">
+        <div class="honor-dot"></div>
         <div>
-          <h3>المركز الثاني — هاكتون إمباكتتون (2025)</h3>
+          <h3>المركز الثاني — هاكاثون إمباكتثون</h3>
+          <span class="honor-date">2025</span>
           <p>الفوز مع فريق هندسة الأثر عن مشروع "نموذج" لتحليل البيانات وتوليد نماذج تقييم ذكية للجمعيات غير الربحية.</p>
         </div>
       </div>
-      <div class="achieve-card">
-        <div class="achieve-icon">⭐</div>
+      <div class="glass honor-card">
+        <div class="honor-dot"></div>
         <div>
-          <h3>نجمة الترم — نادي الحاسبات بجامعة أم القرى (2026)</h3>
+          <h3>نجمة الترم — نادي الحاسبات بجامعة أم القرى</h3>
+          <span class="honor-date">2026</span>
           <p>تكريم تقديرًا للأداء المتميز والعطاء المستمر والإسهامات الفعالة في دعم أعمال النادي وتحقيق أهدافه.</p>
         </div>
       </div>
-      <div class="achieve-card">
-        <div class="achieve-icon">⚡</div>
+      <div class="glass honor-card">
+        <div class="honor-dot"></div>
         <div>
-          <h3>قيادة الفريق التشغيلي (2025 - 2026)</h3>
-          <p>إدارة وتنفيذ الفعاليات والأنشطة الطلابية المتميزة بقسم هندسة الحاسب الآلي والشبكات بنادي الحاسبات بنجاح.</p>
+          <h3>قيادة الفريق التشغيلي</h3>
+          <span class="honor-date">2025 - 2026</span>
+          <p>تخطيط وإدارة الورش والبرامج التعليمية الموجهة لطالبات قسم هندسة الحاسب الآلي والشبكات بنادي الحاسبات.</p>
         </div>
       </div>
-      <div class="achieve-card">
-        <div class="achieve-icon">✍️</div>
+      <div class="glass honor-card">
+        <div class="honor-dot"></div>
         <div>
-          <h3>كاتبة محتوى ومطورة موقع (2025)</h3>
-          <p>تطوير موقع وكتابة محتوى هندسة الحاسب والشبكات لمبادرة منار، وكاتبة محتوى في كبتار.</p>
+          <h3>مبادرة منار</h3>
+          <span class="honor-date">2025</span>
+          <p>تطوير موقع وكتابة محتوى هندسة الحاسب والشبكات لمبادرة منار.</p>
         </div>
       </div>
     </div>
   </section>
-<!-- ============ CONTACT ============ -->
+
+  <!-- CONTACT -->
   <section id="contact" class="wrap py">
-    <div class="contact-box">
-      <div class="eyebrow">CONTACT</div>
+    <div class="glass contact-card">
+      <div class="section-eyebrow">CONTACT</div>
       <h2 class="section-title">تواصل معي</h2>
       <p class="section-sub">متاحة لفرص التدريب والعمل والمشاريع التعاونية</p>
-
       <div class="social-icons">
-        <!-- Email -->
-        <a href="mailto:noorah.bakhil@gmail.com" class="social-btn" title="إرسال بريد إلكتروني">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-          </svg>
+        <a href="mailto:noorah.bakhil@gmail.com" class="glass social-btn" title="إرسال بريد إلكتروني">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         </a>
-
-        <!-- Twitter / X -->
-        <a href="https://x.com/_noorah87?s=11" target="_blank" class="social-btn" title="منصة X (تويتر)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
+        <a href="https://x.com/_noorah87?s=11" target="_blank" class="glass social-btn" title="منصة X">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
-
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/" target="_blank" class="social-btn" title="حساب لينكدإن">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
+        <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/" target="_blank" class="glass social-btn" title="لينكدإن">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap footer-row">
+<footer class="wrap">
+  <div class="footer-row">
     <p>© 2026 نورة محمد باخيل · جميع الحقوق محفوظة</p>
   </div>
 </footer>
@@ -723,7 +395,7 @@
     var links = document.querySelector('.nav-links');
     var open = links.style.display === 'flex';
     links.style.display = open ? 'none' : 'flex';
-    links.style.cssText += open ? '' : 'position:absolute; inset-inline-end:20px; top:66px; background:#10151f; flex-direction:column; border:1px solid rgba(234,240,247,0.09); border-radius:12px; padding:10px; gap:2px;';
+    links.style.cssText += open ? '' : 'position:absolute; inset-inline-end:16px; top:64px; background:rgba(8,11,20,0.95); backdrop-filter:blur(16px); flex-direction:column; border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:10px; gap:2px;';
   });
 </script>
 
