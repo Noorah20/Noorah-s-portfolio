@@ -400,24 +400,18 @@
     box-shadow: 5px 5px 0px #000;
   }
 
+  
   .project-img-frame {
-    height: 250px;
+    height: 180px; 
     background: #000;
     position: relative;
     border-bottom: 2px solid var(--pink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
   }
 
   .project-img-frame img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-  }
-  .project-info {
-    padding: 18px;
+    object-fit: cover;
   }
 
   .project-info h3 {
@@ -664,19 +658,17 @@
       <div class="arabic-section-title">المشاريع</div>
     </div>
 
-    <!-- 100 Projects Initiative Block -->
-    <div style="background: #090514; border: 2px solid var(--yellow); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <div>
-          <h3 style="font-size: 20px; color: var(--yellow); margin-bottom: 6px;">مبادرة 100 مشروع</h3>
-          <p style="color: var(--cream); margin-bottom: 12px;">مبادرة شخصية لبناء 100 مشروع هندسي في الأنظمة المدمجة، وإنترنت الأشياء، والذكاء الاصطناعي مع توثيق الرحلة ومشاركة جميع مراحل التطوير.</p>
-          <a href="https://x.com/_noorah87?s=11" target="_blank" class="btn-pixel" style="font-size: 9px; padding: 8px 14px;">متابعة المبادرة على X</a>
-        </div>
-        <div style="text-align: center; min-width: 150px; background: #181228; padding: 12px; border-radius: 8px; border: 1px solid var(--pink);">
-          <div style="font-family: var(--font-pixel); font-size: 9px; color: var(--cyan);">PROGRESS</div>
-          <div style="font-family: var(--font-pixel); font-size: 18px; color: var(--pink);">12 / 100</div>
-          <div style="font-size: 11px; color: var(--green);">12% COMPLETED</div>
-        </div>
+   <!-- 100 Projects Initiative Block -->
+    <div style="background: #090514; border: 2px solid var(--yellow); padding: 20px; border-radius: 10px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+      <div style="flex: 1; min-width: 280px;">
+        <h3 style="font-size: 20px; color: var(--yellow); margin-bottom: 6px;">مبادرة 100 مشروع</h3>
+        <p style="color: var(--cream); margin-bottom: 12px;">مبادرة شخصية لبناء 100 مشروع هندسي في الأنظمة المدمجة، وإنترنت الأشياء، والذكاء الاصطناعي مع توثيق الرحلة ومشاركة جميع مراحل التطوير.</p>
+        <a href="https://x.com/_noorah87?s=11" target="_blank" class="btn-pixel" style="font-size: 9px; padding: 8px 14px;">متابعة المبادرة على X</a>
+      </div>
+      <div style="text-align: center; min-width: 150px; background: #181228; padding: 12px; border-radius: 8px; border: 1px solid var(--pink);">
+        <div style="font-family: var(--font-pixel); font-size: 9px; color: var(--cyan);">PROGRESS</div>
+        <div style="font-family: var(--font-pixel); font-size: 18px; color: var(--pink);">12 / 100</div>
+        <div style="font-size: 11px; color: var(--green);">12% COMPLETED</div>
       </div>
     </div>
 
