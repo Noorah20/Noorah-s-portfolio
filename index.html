@@ -3,401 +3,985 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نورة محمد باخيل — طالبة هندسة حاسب وشبكات</title>
-<meta name="description" content="نورة محمد باخيل — طالبة هندسة حاسب وشبكات بجامعة أم القرى، مهتمة بالأنظمة المدمجة وإنترنت الأشياء والذكاء الاصطناعي.">
+<title>نورة محمد باخيل — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#080B14;
-    --glass: rgba(255,255,255,0.04);
-    --glass-2: rgba(255,255,255,0.06);
-    --glass-border: rgba(255,255,255,0.10);
-    --glass-border-strong: rgba(255,255,255,0.18);
-    --text:#EDF2FB;
-    --muted:#94A0B8;
-    --muted-2:#5B6780;
-    --a1:#38BDF8;
-    --a2:#818CF8;
-    --grad: linear-gradient(135deg, var(--a1), var(--a2));
-    --font:'Cairo', sans-serif;
-    --container:1100px;
+  :root {
+    --bg-main: #0c0814;
+    --card-bg: #181228;
+    --border-pink: #ff2a85;
+    --border-cyan: #00f0ff;
+    --border-yellow: #ffdf00;
+    --border-green: #00ff87;
+    --pink: #ff4097;
+    --cyan: #00f0ff;
+    --purple: #9d4edd;
+    --yellow: #ffca3a;
+    --green: #00ff87;
+    --cream: #fff0f5;
+    --font-pixel: 'Press Start 2P', cursive;
+    --font-retro: 'VT323', monospace;
+    --font-arabic: 'Tajawal', sans-serif;
   }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; }
-  body{
-    background:var(--bg); color:var(--text); font-family:var(--font);
-    line-height:1.8; -webkit-font-smoothing:antialiased; position:relative; overflow-x:hidden;
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background-color: var(--bg-main);
+    color: var(--cream);
+    font-family: var(--font-arabic);
+    line-height: 1.8;
+    overflow-x: hidden;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255, 42, 133, 0.15) 0%, transparent 30%),
+      radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.15) 0%, transparent 30%),
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+    padding-bottom: 60px;
+    scroll-behavior: smooth;
   }
-  body::before, body::after{
-    content:''; position:fixed; width:520px; height:520px; border-radius:50%;
-    filter:blur(120px); opacity:0.22; z-index:0; pointer-events:none;
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
-  body::before{ background:var(--a1); top:-160px; left:-120px; }
-  body::after{ background:var(--a2); bottom:-160px; right:-120px; }
-  a{ color:inherit; text-decoration:none; }
-  .wrap{ max-width:var(--container); margin:0 auto; padding:0 28px; position:relative; z-index:1; }
-  section{ scroll-margin-top:100px; }
-  :focus-visible{ outline:2px solid var(--a1); outline-offset:3px; }
 
-  .glass{ background:var(--glass); border:1px solid var(--glass-border); border-radius:20px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
-
-  /* Header */
-  header{ position:sticky; top:16px; z-index:50; }
-  .nav-pill{ display:flex; align-items:center; justify-content:space-between; height:60px; padding:0 10px 0 22px; border-radius:999px; }
-  .logo{ font-weight:800; font-size:15px; }
-  .nav-links{ display:flex; gap:2px; align-items:center; }
-  .nav-links a{ font-size:14px; color:var(--muted); padding:9px 16px; border-radius:999px; transition:color .2s, background .2s; }
-  .nav-links a:hover{ color:var(--text); background:var(--glass-2); }
-  .nav-cta{ background:var(--grad); color:#04121F !important; font-weight:700; padding:9px 20px !important; margin-inline-start:6px; }
-  .menu-btn{ display:none; background:var(--glass-2); border:1px solid var(--glass-border); border-radius:999px; width:38px; height:38px; align-items:center; justify-content:center; color:var(--text); cursor:pointer; }
-
-  /* Hero */
-  .hero{ padding:56px 0 60px; }
-  .hero-card{ padding:56px 48px; text-align:center; display:flex; flex-direction:column; align-items:center; }
-  .avatar-ring{ width:120px; height:120px; border-radius:50%; padding:3px; background:var(--grad); margin-bottom:26px; overflow:hidden; }
-  .avatar-inner{ width:100%; height:100%; border-radius:50%; background:#0C1220; overflow:hidden; }
-  .avatar-inner img{ width:100%; height:100%; object-fit:cover; }
-  .eyebrow{ font-size:13px; font-weight:700; letter-spacing:0.06em; margin-bottom:14px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .hero h1{ font-size:clamp(32px,5vw,46px); font-weight:800; margin-bottom:10px; }
-  .hero .role{ font-size:17px; color:var(--muted); margin-bottom:22px; }
-  .hero .bio{ color:var(--muted); font-size:15.5px; max-width:58ch; margin:0 auto 30px; }
-  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
-  .btn{ display:inline-flex; align-items:center; gap:8px; padding:13px 28px; border-radius:999px; font-size:15px; font-weight:700; transition:transform .15s ease, border-color .2s ease; }
-  .btn-primary{ background:var(--grad); color:#04121F; }
-  .btn-primary:hover{ transform:translateY(-2px); }
-  .btn-ghost{ border:1px solid var(--glass-border-strong); color:var(--text); background:var(--glass-2); }
-  .btn-ghost:hover{ border-color:var(--a1); transform:translateY(-2px); }
-
-  /* Section heading */
-  .section-head{ margin-bottom:36px; max-width:60ch; }
-  .section-eyebrow{ font-size:13px; font-weight:700; letter-spacing:0.06em; margin-bottom:8px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .section-title{ font-size:clamp(22px,3vw,30px); font-weight:800; margin-bottom:10px; }
-  .section-sub{ color:var(--muted); font-size:15px; }
-  section.py{ padding:60px 0; }
-
-  /* Initiative */
-  .initiative{ padding:30px 34px; display:flex; justify-content:space-between; align-items:center; gap:26px; flex-wrap:wrap; }
-  .initiative h3{ font-size:19px; font-weight:800; margin-bottom:6px; }
-  .initiative p{ color:var(--muted); font-size:14px; max-width:44ch; }
-  .initiative-link{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; font-size:14px; margin-top:8px; display:inline-block; }
-  .progress-wrap{ min-width:200px; }
-  .progress-track{ width:200px; height:8px; border-radius:99px; background:var(--glass-2); overflow:hidden; margin-bottom:8px; }
-  .progress-fill{ height:100%; width:12%; background:var(--grad); border-radius:99px; }
-  .progress-text{ font-size:12.5px; color:var(--muted-2); }
-
-  /* Skills */
-  .skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  .skill-card{ padding:24px 26px; }
-  .skill-card h3{ font-size:16px; font-weight:700; margin-bottom:16px; }
-  .skill-tags{ display:flex; gap:8px; flex-wrap:wrap; }
-
-  /* Projects */
-  .projects-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  .project-card{ overflow:hidden; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease; }
-  .project-card:hover{ border-color:var(--glass-border-strong); transform:translateY(-4px); }
-  .project-img{ aspect-ratio:16/10; background:#0B0F1A; border-bottom:1px solid var(--glass-border); overflow:hidden; }
-  .project-img img{ width:100%; height:100%; object-fit:cover; }
-  .project-body{ padding:20px; display:flex; flex-direction:column; gap:12px; flex-grow:1; }
-  .project-tag-row{ display:flex; gap:6px; flex-wrap:wrap; }
-  .tag{ font-size:12px; font-weight:600; color:var(--a1); background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:5px 12px; border-radius:99px; direction:ltr; display:inline-block; }
-  .project-card h3{ font-size:16px; font-weight:700; }
-  .project-card p{ color:var(--muted); font-size:13.5px; }
-  .project-link{ font-size:13px; font-weight:700; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-top:auto; }
-
-  /* Education + Certifications */
-  .edu-cert-grid{ display:grid; grid-template-columns: 1fr 1.8fr; gap:18px; align-items:start; }
-  .info-card{ padding:22px 24px; }
-  .info-card h3{ font-size:16px; font-weight:700; margin-bottom:14px; }
-  .edu-line{ padding:10px 0; }
-  .edu-line-name{ font-size:14.5px; font-weight:600; }
-  .edu-line-org{ font-size:13px; color:var(--muted-2); margin-top:2px; }
-  .cert-line{ display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-top:1px solid var(--glass-border); }
-  .cert-line:first-of-type{ border-top:none; padding-top:0; }
-  .cert-line-name{ font-size:14px; font-weight:600; }
-  .cert-line-org{ font-size:12.5px; color:var(--muted-2); }
-  .cert-line-date{ font-size:12.5px; color:var(--muted-2); white-space:nowrap; }
-  .certs-action{ text-align:center; margin-top:26px; }
-
-  /* Honors */
-  .honors-list{ display:flex; flex-direction:column; gap:14px; }
-  .honor-card{ padding:20px 24px; display:flex; gap:16px; align-items:flex-start; }
-  .honor-dot{ width:10px; height:10px; border-radius:50%; background:var(--grad); margin-top:6px; flex-shrink:0; }
-  .honor-card h3{ font-size:15.5px; font-weight:700; margin-bottom:4px; }
-  .honor-date{ font-size:12px; color:var(--muted-2); margin-bottom:6px; display:block; }
-  .honor-card p{ color:var(--muted); font-size:13.5px; }
-
-  /* Contact */
-  .contact-card{ text-align:center; padding:48px; max-width:560px; margin:0 auto; }
-  .social-icons{ display:flex; justify-content:center; gap:14px; margin-top:6px; }
-  .social-btn{ width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--text); transition:transform .2s ease, border-color .2s ease; }
-  .social-btn:hover{ border-color:var(--a1); transform:translateY(-3px); }
-
-  footer{ padding:30px 0; }
-  .footer-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:var(--muted-2); font-size:13px; }
-
-  @media (max-width:920px){
-    .skills-grid, .edu-cert-grid{ grid-template-columns:1fr; }
-    .projects-grid{ grid-template-columns:1fr 1fr; }
+  /* NAVIGATION BAR */
+  .navbar-container {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    max-width: 1100px;
+    margin: 20px auto 30px auto;
+    padding: 0 20px;
   }
-  @media (max-width:640px){
-    .nav-links{ display:none; }
-    .menu-btn{ display:flex; }
-    .projects-grid{ grid-template-columns:1fr; }
-    .hero-card{ padding:40px 24px; }
-    section.py{ padding:44px 0; }
+
+  .navbar {
+    background: var(--card-bg);
+    border: 3px solid var(--border-cyan);
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px 3px var(--border-pink);
+    border-radius: 12px;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .nav-brand {
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    color: var(--cyan);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 2px 2px 0px var(--pink);
+  }
+
+  .nav-brand span {
+    color: var(--pink);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: var(--font-arabic);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    transition: all 0.15s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--cyan);
+    border-color: var(--border-cyan);
+    background: rgba(0, 240, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .nav-cta {
+    background: var(--pink) !important;
+    color: #fff !important;
+    font-family: var(--font-pixel) !important;
+    font-size: 8px !important;
+    padding: 10px 14px !important;
+    border-radius: 6px !important;
+    border: 2px solid var(--border-yellow) !important;
+    box-shadow: 3px 3px 0px #000;
+    transition: transform 0.1s ease !important;
+  }
+
+  .nav-cta:hover {
+    transform: translate(-2px, -2px);
+    background: var(--yellow) !important;
+    color: #000 !important;
+    border-color: var(--pink) !important;
+  }
+
+  /* PIXEL CARD CONTAINERS */
+  .pixel-card {
+    background: var(--card-bg);
+    border: 3px solid var(--border-pink);
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px 3px var(--border-cyan);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .pixel-card.cyan-theme {
+    border-color: var(--cyan);
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px 3px var(--pink);
+  }
+
+  .pixel-card.yellow-theme {
+    border-color: var(--yellow);
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px 3px var(--purple);
+  }
+
+  .pixel-card.green-theme {
+    border-color: var(--green);
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px 3px var(--pink);
+  }
+
+  /* HEADER BLOCK */
+  .section-header-block {
+    margin-bottom: 24px;
+  }
+
+  .pixel-english-badge {
+    display: inline-block;
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    background: var(--pink);
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0px var(--cyan);
+    margin-bottom: 8px;
+  }
+
+  .pixel-english-badge.cyan { background: var(--cyan); box-shadow: 3px 3px 0px var(--pink); }
+  .pixel-english-badge.yellow { background: var(--yellow); box-shadow: 3px 3px 0px var(--purple); }
+  .pixel-english-badge.green { background: var(--green); box-shadow: 3px 3px 0px var(--pink); }
+
+  .arabic-section-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--cream);
+  }
+
+  /* HERO SECTION */
+  .hero-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .player-frame {
+    background: #000;
+    border: 3px solid var(--cyan);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 4px 4px 0px var(--pink);
+  }
+
+  .player-avatar {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid var(--purple);
+  }
+
+  .player-tag {
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    color: var(--yellow);
+    margin-top: 10px;
+  }
+
+  .hero-info h1 {
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--cyan);
+    text-shadow: 2px 2px 0px var(--pink);
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-retro);
+    font-size: 24px;
+    color: var(--yellow);
+    margin-bottom: 16px;
+  }
+
+  .btn-pixel {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    background: var(--pink);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 4px 4px 0px #000, 4px 4px 0px 2px var(--cyan);
+    transition: transform 0.1s ease;
+  }
+
+  .btn-pixel:hover {
+    transform: translate(-2px, -2px);
+  }
+
+  .btn-pixel.secondary {
+    background: var(--purple);
+    box-shadow: 4px 4px 0px #000, 4px 4px 0px 2px var(--yellow);
+  }
+
+  /* HORIZONTAL SLIDER CAROUSEL FOR CERTIFICATES */
+  .certs-slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .certs-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 4px 20px 4px;
+    width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--pink) var(--card-bg);
+  }
+
+  .certs-carousel::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .certs-carousel::-webkit-scrollbar-track {
+    background: #110922;
+    border-radius: 4px;
+  }
+
+  .certs-carousel::-webkit-scrollbar-thumb {
+    background: var(--pink);
+    border-radius: 4px;
+  }
+
+  .mario-item-card {
+    min-width: 300px;
+    max-width: 300px;
+    background: #120a21;
+    border: 3px solid var(--border-yellow);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px 3px var(--border-cyan);
+    flex-shrink: 0;
+  }
+
+  .slider-btn {
+    background: var(--card-bg);
+    border: 2px solid var(--cyan);
+    color: var(--cyan);
+    font-family: var(--font-pixel);
+    font-size: 16px;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px #000;
+    transition: all 0.1s ease;
+    z-index: 10;
+    margin: 0 8px;
+  }
+
+  .slider-btn:hover {
+    background: var(--cyan);
+    color: #000;
+    transform: translate(-2px, -2px);
+  }
+
+  .item-box-header {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    border: 3px solid var(--yellow);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 0px var(--pink);
+    font-family: var(--font-pixel);
+    font-size: 14px;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+
+  .item-badge-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .item-pixel-tag {
+    font-family: var(--font-pixel);
+    font-size: 7px;
+    background: var(--yellow);
+    color: #000;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  .item-date {
+    font-family: var(--font-retro);
+    font-size: 18px;
+    color: var(--pink);
+  }
+
+  .item-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .item-issuer {
+    font-family: var(--font-retro);
+    font-size: 20px;
+    color: var(--cyan);
+  }
+
+  /* PROJECTS GRID */
+  .projects-retro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .project-card-pixel {
+    background: #120a21;
+    border: 2px solid var(--pink);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 5px 5px 0px #000;
+  }
+
+  .project-img-frame {
+    height: 180px;
+    background: #000;
+    position: relative;
+    border-bottom: 2px solid var(--pink);
+  }
+
+  .project-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-info {
+    padding: 18px;
+  }
+
+  .project-info h3 {
+    font-size: 18px;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+
+  .project-info p {
+    font-size: 14px;
+    color: var(--cream);
+  }
+
+  /* RETRO LIST BOXES WITH ENGINEERING SHAPES */
+  .retro-list-box {
+    background: #110922;
+    border: 2px solid var(--purple);
+    border-radius: 10px;
+    padding: 20px 20px 20px 50px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0px #000;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .engineering-shapes {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.85;
+  }
+
+  .shape-hex {
+    width: 18px;
+    height: 10px;
+    background: var(--cyan);
+    position: relative;
+    box-shadow: 2px 2px 0px var(--pink);
+  }
+  .shape-hex::before, .shape-hex::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+  .shape-hex::before {
+    left: -5px;
+    border-bottom: 5px solid var(--cyan);
+  }
+  .shape-hex::after {
+    right: -5px;
+    border-top: 5px solid var(--cyan);
+  }
+
+  .shape-circle {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--yellow);
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 2px 2px 0px var(--purple);
+  }
+
+  .shape-square {
+    width: 10px;
+    height: 10px;
+    background: var(--green);
+    border: 1px solid #000;
+    box-shadow: 2px 2px 0px var(--cyan);
+  }
+
+  .shape-line {
+    width: 2px;
+    height: 25px;
+    background: var(--pink);
+  }
+
+  .retro-list-box h3 {
+    font-size: 18px;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+
+  .retro-list-box .org-subtitle {
+    font-size: 14px;
+    color: var(--yellow);
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .retro-list-box p {
+    font-size: 14px;
+    color: var(--cream);
+  }
+
+  /* CONTACT SECTION WITH CHARACTER WIDGET */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 25px;
+    align-items: center;
+    text-align: right;
+  }
+
+  .contact-char-frame {
+    background: #000;
+    border: 3px solid var(--yellow);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 0px var(--pink);
+  }
+
+  .contact-char-avatar {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid var(--cyan);
+  }
+
+  .contact-char-tag {
+    font-family: var(--font-pixel);
+    font-size: 9px;
+    color: var(--green);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .navbar { justify-content: center; text-align: center; }
+    .nav-links { justify-content: center; }
+    .hero-wrapper { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; text-align: center; }
+    .retro-list-box { padding-left: 20px; }
+    .engineering-shapes { display: none; }
   }
 </style>
 </head>
 <body>
 
-<header class="wrap">
-  <div class="glass nav-pill">
-    <a href="#home" class="logo">نورة باخيل</a>
-    <nav class="nav-links">
-      <a href="#skills">المهارات</a>
-      <a href="#projects">المشاريع</a>
-      <a href="#certs">التعليم والشهادات</a>
-      <a href="#honors">التطوع والجوائز</a>
-      <a href="#contact" class="nav-cta">تواصل معي</a>
-    </nav>
-    <button class="menu-btn" aria-label="فتح القائمة" id="menuBtn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
+<!-- TOP NAVIGATION BAR -->
+<div class="navbar-container">
+  <nav class="navbar">
+    <a href="#" class="nav-brand">
+      <span>●</span> نورة باخيل
+    </a>
+    <ul class="nav-links">
+      <li><a href="#skills">المهارات</a></li>
+      <li><a href="#projects">المشاريع</a></li>
+      <li><a href="#education">التعليم</a></li>
+      <li><a href="#certs">الشهادات والدورات</a></li>
+      <li><a href="#leadership">الخبرة القيادية</a></li>
+      <li><a href="#volunteering">التطوع</a></li>
+      <li><a href="#awards">الجوائز</a></li>
+      <li><a href="#contact" class="nav-cta">تواصل معي</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="container">
+
+  <!-- ABOUT ME / HERO SECTION -->
+  <div class="pixel-card" id="about">
+    <div class="hero-wrapper">
+      <div class="player-frame">
+        <img src="photo_2026-08-17_02-55-56.jpg" alt="نورة محمد باخيل" class="player-avatar">
+        <div class="player-tag">PLAYER 01</div>
+      </div>
+      <div class="hero-info">
+        <div class="section-header-block">
+          <div class="pixel-english-badge">ABOUT ME</div>
+          <div class="arabic-section-title">نبذة عني</div>
+        </div>
+        <h1>نورة محمد باخيل</h1>
+        <div class="hero-subtitle">COMPUTER & NETWORK ENGINEERING STUDENT</div>
+        
+        <p style="font-size: 16px; margin-bottom: 24px;">طالبة هندسة حاسب وشبكات بجامعة أم القرى، مهتمة بالأنظمة المدمجة (Embedded Systems)، وإنترنت الأشياء (IoT)، والذكاء الاصطناعي. أمتلك خبرة في تصميم وتنفيذ المشاريع التي تجمع بين العتاد والبرمجيات باستخدام Arduino وESP32، مع دمج التقنيات الذكية لتطوير حلول هندسية للمشكلات الواقعية. أسعى إلى المساهمة في بناء أنظمة مبتكرة ذات أثر حقيقي.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#contact" class="btn-pixel">تواصل معي</a>
+          <a href="cv_NoorahBakhil.pdf" download class="btn-pixel secondary">تحميل CV</a>
+        </div>
+      </div>
+    </div>
   </div>
-</header>
 
-<main>
-  <!-- HERO -->
-  <section id="home" class="wrap hero">
-    <div class="glass hero-card">
-      <div class="avatar-ring">
-        <div class="avatar-inner">
-          <img src="n.jpg">
-        </div>
-      </div>
-      <div class="eyebrow">COMPUTER & NETWORK ENGINEERING STUDENT</div>
-      <h1>نورة محمد باخيل</h1>
-      <div class="role">جامعة أم القرى · مكة المكرمة</div>
-      <p class="bio">طالبة هندسة حاسب وشبكات، مهتمة بالأنظمة المدمجة، وإنترنت الأشياء، والذكاء الاصطناعي. أمتلك خبرة في تصميم وتنفيذ مشاريع تجمع بين العتاد والبرمجيات باستخدام Arduino وESP32، مع دمج التقنيات الذكية لتطوير حلول هندسية لمشكلات واقعية.</p>
-      <div class="cta-row">
-        <a href="#projects" class="btn btn-primary">عرض أعمالي</a>
-        <a href="#" class="btn btn-ghost">تحميل السيرة الذاتية</a>
-      </div>
+  <!-- 1. SKILLS - TERMINAL INTERFACE -->
+  <div class="pixel-card cyan-theme" id="skills">
+    <div class="section-header-block">
+      <div class="pixel-english-badge cyan">SKILLS</div>
+      <div class="arabic-section-title">المهارات التقنية والشخصية</div>
     </div>
-  </section>
 
-  <!-- CURRENT INITIATIVE -->
-  <section class="wrap py">
-    <div class="glass initiative">
-      <div>
-        <div class="section-eyebrow">MY CURRENT INITIATIVE</div>
-        <h3>تحدي 100 مشروع</h3>
-        <p>بناء 100 مشروع هندسي في الأنظمة المدمجة، إنترنت الأشياء، الذكاء الاصطناعي، وشبكات الحاسب.</p>
-        <a href="https://x.com/_noorah87?s=11" target="_blank" class="initiative-link">متابعة التقدّم ↗</a>
+    <div style="background: #06040c; border: 2px solid var(--cyan); border-radius: 8px; box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.15); padding: 20px; font-family: var(--font-retro); font-size: 20px;">
+      
+      <!-- Terminal Header Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed var(--purple); padding-bottom: 10px; margin-bottom: 15px; color: var(--yellow);">
+        <span>root@noorah-system:~# ./load_skills.sh</span>
+        <span style="font-size: 14px; color: var(--green);">[STATUS: ONLINE]</span>
       </div>
-      <div class="progress-wrap">
-        <div class="progress-track"><div class="progress-fill"></div></div>
-        <div class="progress-text">12 من 100 مشروع مكتمل</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="wrap py">
-    <div class="section-head">
-      <div class="section-eyebrow">SKILLS</div>
-      <h2 class="section-title">المهارات التقنية</h2>
-      <p class="section-sub">مجالات الخبرة والتقنيات والأدوات الهندسية المستعملة.</p>
-    </div>
-    <div class="skills-grid">
-      <div class="glass skill-card">
-        <h3>الأنظمة المدمجة وإنترنت الأشياء</h3>
-        <div class="skill-tags">
-          <span class="tag">Arduino</span>
-          <span class="tag">ESP32</span>
-          <span class="tag">Sensor Integration</span>
-          <span class="tag">IoT Solutions</span>
-          <span class="tag">Hardware–Software Integration</span>
+      <!-- Terminal Content Lines -->
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div>
+          <span style="color: var(--pink);">> LANGUAGES:</span> 
+          <span style="color: var(--cream); font-family: var(--font-arabic); font-size: 15px;"> C++, Python, Java, PHP (Laravel)</span>
         </div>
-      </div>
-      <div class="glass skill-card">
-        <h3>البرمجة والذكاء الاصطناعي</h3>
-        <div class="skill-tags">
-          <span class="tag">Python</span>
-          <span class="tag">C / C++</span>
-          <span class="tag">Java</span>
-          <span class="tag">PHP (Laravel)</span>
-          <span class="tag">Computer Vision Fundamentals</span>
-        </div>
-      </div>
-      <div class="glass skill-card">
-        <h3>الأدوات الهندسية</h3>
-        <div class="skill-tags">
-          <span class="tag">Git & GitHub</span>
-          <span class="tag">Cisco Packet Tracer</span>
-          <span class="tag">Tinkercad</span>
-          <span class="tag">Logisim</span>
-          <span class="tag">VS Code</span>
-        </div>
-      </div>
-      <div class="glass skill-card">
-        <h3>الخبرات الهندسية</h3>
-        <div class="skill-tags">
-          <span class="tag">System Integration</span>
-          <span class="tag">Technical Documentation</span>
-          <span class="tag">Engineering Problem Solving</span>
-          <span class="tag">Embedded Systems Design</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="wrap py">
-    <div class="section-head">
-      <div class="section-eyebrow">PROJECTS</div>
-      <h2 class="section-title">المشاريع الهندسية</h2>
-      <p class="section-sub">نماذج تطبيقية تدمج بين الـ Hardware والأنظمة البرمجية الذكية.</p>
+        <div>
+          <span style="color: var(--pink);">> HARDWARE & IOT:</span> 
+          <span style="color: var(--cream); font-family: var(--font-arabic); font-size: 15px;"> ESP32, Arduino, IoT Architecture, Sensors Integration</span>
+        </div>
+
+        <div>
+          <span style="color: var(--pink);">> NETWORKS & TOOLS:</span> 
+          <span style="color: var(--cream); font-family: var(--font-arabic); font-size: 15px;"> Computer Networking, Cisco Packet Tracer, Arduino IDE</span>
+        </div>
+
+        <div>
+          <span style="color: var(--pink);">> SOFT SKILLS:</span> 
+          <span style="color: var(--cream); font-family: var(--font-arabic); font-size: 15px;"> القيادة والإدارة، العمل الجماعي، حل المشكلات الهندسية، التواصل الفعّال، إدارة الوقت</span>
+        </div>
+      </div>
+
+      <!-- Terminal Footer Prompt -->
+      <div style="margin-top: 15px; border-top: 2px dashed var(--purple); padding-top: 10px; color: var(--cyan); font-size: 16px;">
+        _ <span>Process completed successfully.</span>
+      </div>
+
     </div>
-    <div class="projects-grid">
-      <div class="glass project-card">
-        <div class="project-img"><img src="Smart Air Monitoring System.jpg" alt="Smart Air Monitoring System"></div>
-        <div class="project-body">
+  </div>
+
+  <!-- 2. PROJECTS -->
+  <div class="pixel-card yellow-theme" id="projects">
+    <div class="section-header-block">
+      <div class="pixel-english-badge yellow">PROJECTS</div>
+      <div class="arabic-section-title">المشاريع</div>
+    </div>
+
+    <!-- 100 Projects Initiative Block -->
+    <div style="background: #090514; border: 2px solid var(--yellow); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div>
+          <h3 style="font-size: 20px; color: var(--yellow); margin-bottom: 6px;">مبادرة 100 مشروع</h3>
+          <p style="color: var(--cream); margin-bottom: 12px;">مبادرة شخصية لبناء 100 مشروع هندسي في الأنظمة المدمجة، وإنترنت الأشياء، والذكاء الاصطناعي مع توثيق الرحلة ومشاركة جميع مراحل التطوير.</p>
+          <a href="https://x.com/_noorah87?s=11" target="_blank" class="btn-pixel" style="font-size: 9px; padding: 8px 14px;">متابعة المبادرة على X</a>
+        </div>
+        <div style="text-align: center; min-width: 150px; background: #181228; padding: 12px; border-radius: 8px; border: 1px solid var(--pink);">
+          <div style="font-family: var(--font-pixel); font-size: 9px; color: var(--cyan);">PROGRESS</div>
+          <div style="font-family: var(--font-pixel); font-size: 18px; color: var(--pink);">12 / 100</div>
+          <div style="font-size: 11px; color: var(--green);">12% COMPLETED</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-retro-grid">
+      <div class="project-card-pixel">
+        <div class="project-img-frame">
+          <img src="Emotion Detection System.jpg" alt="Smart Air Monitoring System">
+        </div>
+        <div class="project-info">
           <h3>Smart Air Monitoring System</h3>
-          <div class="project-tag-row"><span class="tag">ARDUINO</span><span class="tag">IOT SENSORS</span><span class="tag">WEB DASHBOARD</span></div>
-          <p>نظام ذكي لرصد جودة الهواء والبيئة في الوقت الفعلي باستعمال الأردوينو ومستشعرات البيئة وربط البيانات مع لوحة تحكم ويب.</p>
-          <a href="https://www.linkedin.com/posts/noorah-bakhil-93a59b30a_laravel-php-webdevelopment-activity-7458153007214436352-0j4S?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
+          <p>نظام قائم على إنترنت الأشياء لمراقبة جودة الهواء باستخدام Arduino والحساسات البيئية مع جمع قراءات الحرارة والرطوبة والغازات وعرضها عبر لوحة تحكم ويب مباشرة.</p>
         </div>
       </div>
-      <div class="glass project-card">
-        <div class="project-img"><img src="Smart Car Selection System.jpg" alt="Smart Car Selection System"></div>
-        <div class="project-body">
-          <h3>Smart Car Selection System</h3>
-          <div class="project-tag-row"><span class="tag">ESP32</span><span class="tag">HARDWARE</span><span class="tag">RECOMMENDATION</span></div>
-          <p>نظام مادي تفاعلي يتيح للمستخدم اختيار السيارات واستعراض تفاصيلها عبر حساس الصوت وأزرار ذكية، مع نظام توصية ذكي يحلل تفضيلات المستخدم لعرض أنسب الخيارات.</p>
-          <a href="https://www.linkedin.com/posts/noorah-bakhil-93a59b30a_iot-digitalrainbow-aenaeuaesaezaeuaesabraepaesaelaecaeyaepaej-activity-7460376416589869056-6YFN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
+
+      <div class="project-card-pixel">
+        <div class="project-img-frame">
+          <img src="emotion_detection_project.jpg" alt="Emotion Detection System">
         </div>
-      </div>
-      <div class="glass project-card">
-        <div class="project-img"><img src="Emotion Detection System.jpg" alt="Emotion Detection System"></div>
-        <div class="project-body">
+        <div class="project-info">
           <h3>Emotion Detection System</h3>
-          <div class="project-tag-row"><span class="tag">PYTHON</span><span class="tag">ESP32</span><span class="tag">COMPUTER VISION</span></div>
-          <p>نظام لتمييز المشاعر في الوقت الفعلي عبر تحليل تعابير الوجه، باستخدام Python وESP32 وشاشة LCD — تم عرضه ضمن فعالية Engineering Week.></p>
-          <a href="https://www.linkedin.com/posts/noorah-bakhil-93a59b30a_engineeringweek-activity-7449894499180531712-PWyt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7AxH4B5K3Y1d1aQP3rvwZQd1fJ3yh4tTA" target="_blank" class="project-link">عرض التفاصيل في LinkedIn ←</a>
+          <p>نظام للتعرف على المشاعر من تعابير الوجه باستخدام Python وESP32 مع معالجة الصور وتحديد المشاعر وعرض النتائج على شاشة LCD.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- EDUCATION + CERTIFICATIONS -->
-  <section id="certs" class="wrap py">
-    <div class="section-head">
-      <div class="section-eyebrow">EDUCATION & CERTIFICATIONS</div>
-      <h2 class="section-title">التعليم والشهادات</h2>
-    </div>
-    <div class="edu-cert-grid">
-      <div class="glass info-card">
-        <h3>التعليم</h3>
-        <div class="edu-line">
-          <div class="edu-line-name">بكالوريوس هندسة حاسب آلي وشبكات</div>
-          <div class="edu-line-org">جامعة أم القرى · 2023 – الآن</div>
+      <div class="project-card-pixel">
+        <div class="project-img-frame">
+          <img src="Smart Car Selection System.jpg" alt="Smart Car Selection System">
         </div>
-      </div>
-      <div class="glass info-card">
-        <h3>الشهادات والدورات (2025 – 2026)</h3>
-        <div class="cert-line"><div><div class="cert-line-name">Network Programming & C</div><div class="cert-line-org">Satr Academy</div></div><div class="cert-line-date">Oct 2025</div></div>
-        <div class="cert-line"><div><div class="cert-line-name">Microsoft Azure Fundamentals</div><div class="cert-line-org">Microsoft</div></div><div class="cert-line-date">Sep 2025</div></div>
-        <div class="cert-line"><div><div class="cert-line-name">Python All Levels</div><div class="cert-line-org">Coursera / IBM</div></div><div class="cert-line-date">Nov 2025</div></div>
-        <div class="cert-line"><div><div class="cert-line-name">Intro to Artificial Intelligence</div><div class="cert-line-org">KAUST Academy</div></div><div class="cert-line-date">Jan 2026</div></div>
-        <div class="cert-line"><div><div class="cert-line-name">PHP Laravel Web Dev</div><div class="cert-line-org">Tuwaiq Academy</div></div><div class="cert-line-date">Mar 2026</div></div>
-        <div class="cert-line"><div><div class="cert-line-name">Semiconductors & Chip Design</div><div class="cert-line-org">Academy32</div></div><div class="cert-line-date">Apr 2026</div></div>
-      </div>
-    </div>
-    <div class="certs-action">
-      <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/details/certifications/" target="_blank" class="btn btn-ghost">عرض كافة الشهادات في LinkedIn ↗</a>
-    </div>
-  </section>
-
-  <!-- VOLUNTEERING & HONORS -->
-  <section id="honors" class="wrap py">
-    <div class="section-head">
-      <div class="section-eyebrow">VOLUNTEERING & HONORS</div>
-      <h2 class="section-title">الأعمال التطوعية والجوائز</h2>
-    </div>
-    <div class="honors-list">
-      <div class="glass honor-card">
-        <div class="honor-dot"></div>
-        <div>
-          <h3>المركز الثاني — هاكاثون إمباكتثون</h3>
-          <span class="honor-date">2025</span>
-          <p>الفوز مع فريق هندسة الأثر عن مشروع "نموذج" لتحليل البيانات وتوليد نماذج تقييم ذكية للجمعيات غير الربحية.</p>
-        </div>
-      </div>
-      <div class="glass honor-card">
-        <div class="honor-dot"></div>
-        <div>
-          <h3>نجمة الترم — نادي الحاسبات بجامعة أم القرى</h3>
-          <span class="honor-date">2026</span>
-          <p>تكريم تقديرًا للأداء المتميز والعطاء المستمر والإسهامات الفعالة في دعم أعمال النادي وتحقيق أهدافه.</p>
-        </div>
-      </div>
-      <div class="glass honor-card">
-        <div class="honor-dot"></div>
-        <div>
-          <h3>قيادة الفريق التشغيلي</h3>
-          <span class="honor-date">2025 - 2026</span>
-          <p>تخطيط وإدارة الورش والبرامج التعليمية الموجهة لطالبات قسم هندسة الحاسب الآلي والشبكات بنادي الحاسبات.</p>
-        </div>
-      </div>
-      <div class="glass honor-card">
-        <div class="honor-dot"></div>
-        <div>
-          <h3>مبادرة منار</h3>
-          <span class="honor-date">2025</span>
-          <p>تطوير موقع وكتابة محتوى هندسة الحاسب والشبكات لمبادرة منار.</p>
+        <div class="project-info">
+          <h3>Smart Car Selection System</h3>
+          <p>نظام تفاعلي يتيح للمستخدم اختيار السيارات واستعراض تفاصيلها باستخدام حساس صوت وأزرار ذكية يدمج التفاعل الصوتي لتقديم تجربة ذكية.</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="wrap py">
-    <div class="glass contact-card">
-      <div class="section-eyebrow">CONTACT</div>
-      <h2 class="section-title">تواصل معي</h2>
-      <p class="section-sub">متاحة لفرص التدريب والعمل والمشاريع التعاونية</p>
-      <div class="social-icons">
-        <a href="mailto:noorah.bakhil@gmail.com" class="glass social-btn" title="إرسال بريد إلكتروني">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </a>
-        <a href="https://x.com/_noorah87?s=11" target="_blank" class="glass social-btn" title="منصة X">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/" target="_blank" class="glass social-btn" title="لينكدإن">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="wrap">
-  <div class="footer-row">
-    <p>© 2026 نورة محمد باخيل · جميع الحقوق محفوظة</p>
   </div>
-</footer>
 
-<script>
-  document.getElementById('menuBtn').addEventListener('click', function(){
-    var links = document.querySelector('.nav-links');
-    var open = links.style.display === 'flex';
-    links.style.display = open ? 'none' : 'flex';
-    links.style.cssText += open ? '' : 'position:absolute; inset-inline-end:16px; top:64px; background:rgba(8,11,20,0.95); backdrop-filter:blur(16px); flex-direction:column; border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:10px; gap:2px;';
-  });
-</script>
+  <!-- 3. EDUCATION -->
+  <div class="pixel-card green-theme" id="education">
+    <div class="section-header-block">
+      <div class="pixel-english-badge green">EDUCATION</div>
+      <div class="arabic-section-title">التعليم</div>
+    </div>
+
+    <div class="retro-list-box">
+      <div class="engineering-shapes">
+        <div class="shape-hex"></div>
+        <div class="shape-line"></div>
+        <div class="shape-circle"></div>
+        <div class="shape-square"></div>
+      </div>
+      
+      <h3>بكالوريوس هندسة حاسب آلي وشبكات</h3>
+      <div class="org-subtitle">جامعة أم القرى (2023 – حتى الآن)</div>
+    </div>
+  </div>
+
+  <!-- 4. CERTIFICATIONS & COURSES -->
+  <div class="pixel-card" id="certs">
+    <div class="section-header-block">
+      <div class="pixel-english-badge">CERTIFICATIONS & COURSES</div>
+      <div class="arabic-section-title">الشهادات والدورات</div>
+    </div>
+
+    <div class="certs-slider-container">
+      <button class="slider-btn" onclick="document.getElementById('certsCarousel').scrollBy({left: 320, behavior: 'smooth'})">&#10095;</button>
+      
+      <div class="certs-carousel" id="certsCarousel">
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">مارس 2026</span>
+            </div>
+            <div class="item-title">برنامج تطوير مواقع الويب باستخدام PHP Laravel</div>
+          </div>
+          <div class="item-issuer">أكاديمية طويق</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">أبريل 2026</span>
+            </div>
+            <div class="item-title">مقدمة في أشباه الموصلات وأساسيات تصميم الرقائق الإلكترونية</div>
+          </div>
+          <div class="item-issuer">Academy32</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">فبراير 2026</span>
+            </div>
+            <div class="item-title">الورشة الاحترافية في عالم الدرونز</div>
+          </div>
+          <div class="item-issuer">Prehake</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">يناير 2026</span>
+            </div>
+            <div class="item-title">Introduction to Artificial Intelligence</div>
+          </div>
+          <div class="item-issuer">KAUST Academy</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">يناير 2026</span>
+            </div>
+            <div class="item-title">مقدمة في إنترنت الأشياء (IoT)</div>
+          </div>
+          <div class="item-issuer">منصة سطر</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">نوفمبر 2025</span>
+            </div>
+            <div class="item-title">EYOUTH Learning Plan</div>
+          </div>
+          <div class="item-issuer">IBM</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">نوفمبر 2025</span>
+            </div>
+            <div class="item-title">لغة Python (جميع المستويات)</div>
+          </div>
+          <div class="item-issuer">Coursera</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">أكتوبر 2025</span>
+            </div>
+            <div class="item-title">لغة C++ (جميع المستويات)</div>
+          </div>
+          <div class="item-issuer">أكاديمية سطر</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">سبتمبر 2025</span>
+            </div>
+            <div class="item-title">Microsoft Azure Fundamentals & Describe Azure Management and Governance</div>
+          </div>
+          <div class="item-issuer">Elevate Women</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">أغسطس 2025</span>
+            </div>
+            <div class="item-title">Computer Vision</div>
+          </div>
+          <div class="item-issuer">AI Pioneers</div>
+        </div>
+
+        <div class="mario-item-card">
+          <div>
+            <div class="item-box-header">[?]</div>
+            <div class="item-badge-top">
+              <span class="item-pixel-tag">VERIFIED</span>
+              <span class="item-date">ديسمبر 2024</span>
+            </div>
+            <div class="item-title">برمجة الشبكات</div>
+          </div>
+          <div class="item-issuer">أكاديمية سطر</div>
+        </div>
+      </div>
+
+      <button class="slider-btn" onclick="document.getElementById('certsCarousel').scrollBy({left: -320, behavior: 'smooth'})">&#10094;</button>
+    </div>
+  </div>
+
+  <!-- 5. LEADERSHIP -->
+  <div class="pixel-card cyan-theme" id="leadership">
+    <div class="section-header-block">
+      <div class="pixel-english-badge cyan">LEADERSHIP</div>
+      <div class="arabic-section-title">الخبرة القيادية</div>
+    </div>
+
+    <div class="retro-list-box">
+      <h3>قائدة فريق هندسة الحاسب</h3>
+      <div class="org-subtitle">نادي هندسة الحاسب — جامعة أم القرى</div>
+      <p>تخطيط وإدارة الورش والبرامج التعليمية الموجهة لطالبات قسم هندسة الحاسب الآلي والشبكات بنادي الحاسبات.</p>
+    </div>
+  </div>
+
+  <!-- 6. VOLUNTEERING -->
+  <div class="pixel-card yellow-theme" id="volunteering">
+    <div class="section-header-block">
+      <div class="pixel-english-badge yellow">VOLUNTEERING</div>
+      <div class="arabic-section-title">التطوع</div>
+    </div>
+
+    <div class="retro-list-box">
+      <h3>المساهمة في تطوير موقع وكتابة محتوى تخصص هندسة الحاسب والشبكات</h3>
+      <div class="org-subtitle">مبادرة منار (يوليو 2025)</div>
+      <p>المساهمة في تطوير المحتوى التقني وإثراء موقع المبادرة لتخصص هندسة الحاسب الآلي والشبكات.</p>
+    </div>
+
+    <div class="retro-list-box">
+      <h3>متحدثة في بوث كلية الحاسبات</h3>
+      <div class="org-subtitle">جامعة أم القرى — يوم التطوع (2025)</div>
+      <p>تمثيل الكلية والتحدث عن المبادرات والفرص الأكاديمية والتقنية.</p>
+    </div>
+  </div>
+
+  <!-- 7. AWARDS & HONORS - NEW ACHIEVEMENT UNLOCKED DESIGN -->
+  <div class="pixel-card green-theme" id="awards">
+    <div class="section-header-block">
+      <div class="pixel-english-badge green">AWARDS & HONORS</div>
+      <div class="arabic-section-title">الجوائز والافتخارات</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      
+      <!-- Award Item 1 -->
+      <div style="background: #090f0c; border: 2px solid var(--green); border-radius: 10px; padding: 20px; box-shadow: 4px 4px 0px #000; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="width: 55px; height: 55px; background: #000; border: 3px solid var(--yellow); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 2px 2px 0px var(--green); flex-shrink: 0;">
+          🏆
+        </div>
+        <div style="flex: 1; min-width: 240px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 10px;">
+            <span style="font-family: var(--font-pixel); font-size: 8px; background: var(--yellow); color: #000; padding: 4px 8px; border-radius: 4px;">ACHIEVEMENT UNLOCKED</span>
+            <span style="font-family: var(--font-retro); font-size: 20px; color: var(--pink);">2025</span>
+          </div>
+          <h3 style="font-size: 18px; color: var(--cyan); margin-bottom: 4px;">المركز الثاني – هاكاثون إمباكتثون</h3>
+          <div style="font-size: 14px; color: var(--yellow); font-weight: bold; margin-bottom: 6px;">فريق هندسة الأثر</div>
+          <p style="font-size: 14px; color: var(--cream);">الفوز في مشروع نموذج لتحليل البيانات وتوليد نماذج تقييم ذكية للجمعيات غير الربحية.</p>
+        </div>
+      </div>
+
+      <!-- Award Item 2 -->
+      <div style="background: #090f0c; border: 2px solid var(--green); border-radius: 10px; padding: 20px; box-shadow: 4px 4px 0px #000; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="width: 55px; height: 55px; background: #000; border: 3px solid var(--yellow); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 2px 2px 0px var(--green); flex-shrink: 0;">
+          ⭐
+        </div>
+        <div style="flex: 1; min-width: 240px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 10px;">
+            <span style="font-family: var(--font-pixel); font-size: 8px; background: var(--green); color: #000; padding: 4px 8px; border-radius: 4px;">TOP RATED</span>
+            <span style="font-family: var(--font-retro); font-size: 20px; color: var(--pink);">2026</span>
+          </div>
+          <h3 style="font-size: 18px; color: var(--cyan); margin-bottom: 4px;">نجمة الترم</h3>
+          <div style="font-size: 14px; color: var(--yellow); font-weight: bold; margin-bottom: 6px;">نادي الحاسبات — جامعة أم القرى</div>
+          <p style="font-size: 14px; color: var(--cream);">تقديراً للأداء المتميز والعطاء المستمر والإسهامات الفعالة في دعم أعمال النادي وتحقيق أهدافه.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 8. CONTACT -->
+  <div class="pixel-card" id="contact">
+    <div class="section-header-block" style="text-align: center;">
+      <div class="pixel-english-badge cyan">CONTACT</div>
+      <div class="arabic-section-title">تواصل معي</div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-char-frame">
+        <img src="photo_2026-08-17_02-56-12.jpg" alt="Character" class="contact-char-avatar">
+        <div class="contact-char-tag">READY</div>
+      </div>
+      <div>
+        <p style="font-size: 16px; margin-bottom: 12px; color: var(--cream);">مستعدة لخوض تحديات جديدة ومتاحة لفرص التدريب، العمل، والمشاريع التعاونية.</p>
+        <p style="font-family: var(--font-retro); font-size: 24px; color: var(--cyan); margin-bottom: 20px;">noorah.bakhil@gmail.com</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="mailto:noorah.bakhil@gmail.com" class="btn-pixel">E-MAIL</a>
+          <a href="https://www.linkedin.com/in/noorah-bakhil-93a59b30a/" target="_blank" class="btn-pixel" style="background: #0077b5; box-shadow: 4px 4px 0px #000, 4px 4px 0px 2px var(--cyan);">LINKEDIN</a>
+          <a href="https://x.com/_noorah87?s=11" target="_blank" class="btn-pixel secondary">X / TWITTER</a>
+          <a href="https://github.com/noorah20" target="_blank" class="btn-pixel">GITHUB</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>
